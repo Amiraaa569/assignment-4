@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Amira Abido — Portfolio</title>
+    <meta name="description" content="Interactive personal portfolio (Assignment 3 - advanced functionality).">
+
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="topnav">
+    <nav class="container nav-inner" aria-label="Section links">
+        <div class="nav-left">
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <form id="usernameForm" class="inline-form" aria-label="Personalize greeting">
+                <label for="username" class="sr-only">Your name</label>
+                <input id="username" name="username" type="text" placeholder="Enter your name" />
+                <button type="submit" class="btn">Save</button>
+            </form>
+
+            <button id="themeToggle" class="btn btn-ghost" aria-pressed="false" aria-label="Toggle dark mode">🌓 Theme</button>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="intro-card appear">
+        <div class="intro-photo image-slot">
+            <img src="assets/images/user.jpg" alt="Profile photo" loading="lazy" decoding="async">
+        </div>
+
+        <div class="intro-text">
+            <div>
+                <h1 class="big-name">Amira Abido</h1>
+                <p id="greeting" class="greet" aria-live="polite"></p>
+                <p id="visitInfo" class="visit-info muted" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <ul class="bullets appear">
+            <li>I am a CS student at KFUPM.</li>
+            <li>I am taking a web development course.</li>
+        </ul>
+
+        <article class="contact-card appear" aria-labelledby="ai-tools-title">
+            <h3 id="ai-tools-title" class="section-title">Enhancements</h3>
+
+            <div class="ai-tools">
+                <button id="aiSuggestIntro" class="btn btn-ghost">✨ AI: Suggest a snappier intro</button>
+                <p id="aiIntroOutput" class="muted" aria-live="polite"></p>
+            </div>
+
+            <div class="fact-block">
+                <button id="loadFact" class="btn">🎲 Random Dev Fact</button>
+                <span id="factStatus" class="status" hidden>Loading…</span>
+                <p id="factText" class="muted"></p>
+                <button id="retryFact" class="btn btn-ghost" hidden>Retry</button>
+            </div>
+        </article>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="controls appear">
+            <input id="search" type="search" placeholder="Search by project name…" aria-label="Search projects" />
+            <select id="filter" aria-label="Filter by type">
+                <option value="all">All types</option>
+                <option value="web">Web</option>
+                <option value="data">Data</option>
+                <option value="mobile">Mobile</option>
+                <option value="hardware">Hardware</option>
+            </select>
+            <select id="sort" aria-label="Sort projects">
+                <option value="date-desc">Newest</option>
+                <option value="date-asc">Oldest</option>
+                <option value="title-asc">Title A–Z</option>
+                <option value="title-desc">Title Z–A</option>
+            </select>
+        </div>
+
+        <div id="projectsList" class="grid appear" aria-live="polite"></div>
+        <p id="emptyState" class="muted center" hidden>No projects found.</p>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-card appear">
+            <form id="contactForm" class="contact-form" novalidate>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" minlength="10" maxlength="300" required></textarea>
+                <small id="messageCounter" class="muted counter" aria-live="polite"></small>
+
+                <button type="submit" class="btn btn-send">Send</button>
+                <p id="formStatus" class="form-status" aria-live="polite" hidden></p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <small class="tiny-name">© <span id="year"></span> Amira Abido</small>
+</footer>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>
